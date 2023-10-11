@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Halaman Full Screen</title>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-
-    <script src="script.js"></script>
+    <!-- Konten halaman Anda akan ditempatkan di sini -->
+    <button id="fullscreen-button">Layar Penuh</button>
+    <script>
+        const fullscreenButton = document.getElementById('fullscreen-button');
+    
+        fullscreenButton.addEventListener('click', () => {
+            const element = document.documentElement;
+    
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { /* Firefox */
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari, and Opera */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE/Edge */
+                element.msRequestFullscreen();
+            }
+        });
+    </script>
+    
 </body>
 </html>
